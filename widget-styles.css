@@ -206,7 +206,7 @@
     box-shadow: 0 0 15px #00ff40, 0 0 30px #00ff40;
 }
 
-/* target the Esri popup close “X” */
+/* target the Esri popup close, collapse, and dock buttons */
 .esri-popup__icon.esri-icon-close,
 .esri-popup__icon--dock-icon.esri-icon-dock-right.esri-popup__icon,
 .esri-popup__button.esri-popup__action[title="Zoom to"] .esri-popup__icon.esri-icon-zoom-in-magnifying-glass,
@@ -225,7 +225,7 @@
     color: var(--icon-text);
 }
 
-/* Popup header title turns dark on hover of the header bar */
+/* Change the icon colors on hover */
 .esri-popup__header-container--button:hover .esri-popup__header-title,
 .esri-popup__button[title="Dock"]:hover .esri-popup__icon--dock-icon.esri-icon-dock-right,
 .esri-popup__button[aria-label="Close"]:hover .esri-popup__icon.esri-icon-close {
