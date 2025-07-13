@@ -1,0 +1,241 @@
+:root {
+    --bg-primary: #934BF3;
+    --bg-hover: #cfec5c;
+    --accent: #00ff40;
+    --panel-bg: #111;
+    --panel-text: #00ff40;
+    --icon-text: #0d1b2a;
+    --radius: 6px;
+    --transition: 0.3s ease;
+    --menu-offset: 15px;
+    --menu-minw: 200px;
+    --menu-maxh: 70vh;
+}
+
+/* Pill button styles */
+.esri-widget--button[title],
+.esri-widget--button.esri-search__submit-button[title="Search"],
+.esri-widget--button.esri-locate,
+.esri-widget--button.esri-search__submit-button,
+.esri-widget--button[aria-controls$="_content"] {
+    background: var(--bg-primary) !important;
+    border-radius: var(--radius) !important;
+    transition: background var(--transition), box-shadow var(--transition) !important;
+}
+
+/* Hover for all of the above */
+.esri-widget--button[title]:hover,
+.esri-widget--button.esri-locate:hover,
+.esri-widget--button.esri-search__submit-button:hover,
+.esri-widget--button[aria-controls$="_content"]:hover {
+    background: var(--bg-hover) !important;
+    box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent) !important;
+}
+
+/* Icon color inside controls */
+#controls .esri-widget--button .esri-icon,
+.esri-widget--button[aria-controls$="_content"] .esri-icon,
+.esri-widget--button[aria-controls$="_content"] .esri-collapse__icon,
+.esri-widget--button[aria-controls$="_content"] .esri-expand__icon,
+.esri-input.esri-search__input::placeholder,
+.esri-search__container .esri-widget--button .esri-icon {
+    color: var(--icon-text) !important;
+    opacity: 1 !important;
+}
+
+/* Common sizing & centering for all expand toggles */
+.esri-widget--button[aria-controls$="_content"] {
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* The wrappers for legend, basemap, info */
+#legendControl.esri-expand,
+#basemapControl.esri-expand,
+#infoControl.esri-expand {
+    position: relative !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 6px 0 !important;
+    background-color: var(--bg-primary) !important;
+    border-radius: var(--radius) !important;
+    color: var(--icon-text) !important;
+}
+
+/* Hover glow for the expand panels */
+#legendControl.esri-expand:hover,
+#basemapControl.esri-expand:hover,
+#infoControl.esri-expand:hover {
+    box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent) !important;
+}
+
+/* Expand panels */
+#legendControl .esri-expand__content,
+#basemapControl .esri-expand__content,
+#infoControl .esri-expand__content {
+    position: absolute !important;
+    top: 0 !important;
+    left: 100% !important;
+    margin-left: var(--menu-offset) !important;
+    z-index: 9999 !important;
+    min-width: var(--menu-minw);
+    max-height: var(--menu-maxh) !important;
+    overflow-y: auto !important;
+    background-color: var(--panel-bg) !important;
+    color: var(--panel-text) !important;
+    border-radius: var(--radius) !important;
+    padding: 8px !important;
+    box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent) !important;
+}
+
+/* panels within panels... */
+#legendControl .esri-expand__content .esri-legend,
+#basemapControl .esri-expand__content .esri-basemap-gallery,
+#infoControl .esri-expand__content .esri-widget--panel,
+#legendControl .esri-expand__content h3.esri-legend__service-label {
+    background-color: var(--panel-bg) !important;
+    color: var(--panel-text) !important;
+}
+
+/* Hide container corners for default search stuff */
+.esri-search__container,
+.esri-component.esri-search {
+    background: transparent !important;
+    border-radius: var(--radius) !important;
+    overflow: hidden !important;
+    opacity: 1 !important;
+}
+
+/* Style the search bar*/
+.esri-search__container .esri-input.esri-search__input,
+.esri-search__container .esri-widget--button.esri-search__submit-button,
+.esri-search__container .esri-widget--button.esri-search__reset-button {
+    border: 2.5px solid var(--accent) !important;
+    transition: background var(--transition), box-shadow var(--transition) !important;
+    color: var(--icon-text) !important;
+    opacity: 1;
+    box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent) !important;
+}
+
+/* input pill gets left round only */
+.esri-search__container .esri-input.esri-search__input {
+    border-radius: var(--radius) 0 0 var(--radius) !important;
+}
+
+/* submit and reset buttons get right-round only; no left border */
+.esri-search__container .esri-widget--button.esri-search__submit-button,
+.esri-search__container .esri-widget--button.esri-search__reset-button {
+    border-radius: 0 var(--radius) var(--radius) 0 !important;
+    border-left: none !important;
+}
+
+/* Search-input and suggestions share these */
+.esri-input.esri-search__input[title="Find address or place"] {
+    background: var(--bg-primary) !important;
+    color: var(--icon-text) !important;
+    border: 2.5px solid var(--accent) !important;
+    border-radius: var(--radius) 0 0 var(--radius) !important;
+    transition: background var(--transition), box-shadow var(--transition);
+}
+
+.esri-input.esri-search__input:hover,
+.esri-input.esri-search__input:focus {
+    background: var(--bg-hover) !important;
+    outline: none !important;
+}
+
+.esri-search__suggestions-menu {
+    border-radius: 0 0 var(--radius) var(--radius) !important;
+}
+
+/*
+ * CONTROL CONTAINER-
+ * stacks all controls vertically in a pill
+ */
+#controls {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10px;
+    left: 10px;
+    background-color: #934BF3;
+    border-radius: 16px;
+    padding: 3px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    min-height: 200px;
+    opacity: 0.85;
+    border: 2.5px solid #00ff40 !important;
+}
+
+#controls>* {
+    margin: 6px 0;
+}
+
+/*
+ * ZOOM BUTTONS  
+ */
+#zoomControl.esri-zoom {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px;
+    background-color: #934BF3 !important;
+    border-radius: 6px !important;
+    transition: background-color 0.3s ease;
+}
+
+/* 86 the wrapper’s hover so it doesnt turn yellow */
+#zoomControl.esri-zoom:hover {
+    background-color: #934BF3 !important;
+}
+
+/* Make each inner button transparent by default */
+#zoomControl .esri-widget--button {
+    background-color: transparent !important;
+    border-radius: 6px !important;
+    transition: background-color 0.3s ease;
+}
+
+#zoomControl .esri-widget--button:hover {
+    background-color: #cfec5c !important;
+    box-shadow: 0 0 15px #00ff40, 0 0 30px #00ff40;
+}
+
+/* target the Esri popup close “X” */
+.esri-popup__icon.esri-icon-close,
+.esri-popup__icon--dock-icon.esri-icon-dock-right.esri-popup__icon,
+.esri-popup__button.esri-popup__action[title="Zoom to"] .esri-popup__icon.esri-icon-zoom-in-magnifying-glass,
+.esri-popup__action-text {
+    color: var(--accent) !important;
+    opacity: 1 !important;
+}
+
+/* pop up button hover styles*/
+.esri-popup__button[aria-label="Close"]:hover,
+.esri-popup__button[title="Dock"]:hover,
+.esri-popup__header-container--button[title="Collapse"]:hover {
+    background-color: var(--bg-hover) !important;
+    border-radius: 50% !important;
+    transition: background-color var(--transition) !important;
+    color: var(--icon-text);
+}
+
+/* Popup header title turns dark on hover of the header bar */
+.esri-popup__header-container--button:hover .esri-popup__header-title,
+.esri-popup__button[title="Dock"]:hover .esri-popup__icon--dock-icon.esri-icon-dock-right,
+.esri-popup__button[aria-label="Close"]:hover .esri-popup__icon.esri-icon-close {
+    color: var(--icon-text) !important;
+    opacity: 1 !important;
+    transition: color var(--transition) !important;
+}
+
+.esri-popup .esri-feature__content-element {
+    background-color: var(--bg-hover) !important;
+    border-radius: var(--radius) !important;
+    padding: 8px !important;
+}
